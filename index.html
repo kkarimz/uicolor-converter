@@ -34,9 +34,9 @@ function toHex()
     if (parseInt(alpha) < 0) { document.getElementsByName("alphaTextBox")[0].value = "0.0"; }
     alpha = String(document.getElementsByName("alphaTextBox")[0] .value);
 
-    document.getElementById("objc").innerHTML = "Objective-C: <mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:" + alpha + "];</mark>";
+    document.getElementById("objc").innerHTML = "Objective-C:</br><mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:" + alpha + "];</mark>";
 
-    document.getElementById("swift").innerHTML = "Swift: <mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ " alpha:" + alpha + ")</mark>";
+    document.getElementById("swift").innerHTML = "Swift:</br><mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ " alpha:" + alpha + ")</mark>";
 
 	document.getElementById("rgb").innerHTML = "RGB:  " + r + "," + g + "," + b +"";
 
@@ -76,9 +76,9 @@ function toRGB()
     if (g == "") g = "0";
     if (b == "") b = "0";
 
-    document.getElementById("objc").innerHTML = "Objective-C: <mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:1.0];</mark>";
+    document.getElementById("objc").innerHTML = "Objective-C:</br><mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:1.0];</mark>";
 
-    document.getElementById("swift").innerHTML = "Swift: <mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+", alpha:1.0)</mark>";
+    document.getElementById("swift").innerHTML = "Swift:</br><mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+", alpha:1.0)</mark>";
 
     document.getElementById("rgb").innerHTML = "RGB:  " + r + "," + g + "," + b +"";
 
@@ -108,9 +108,9 @@ function colorPicker()
     var bValue = (b/255).toFixed(2);
  
 
-    document.getElementById("objc").innerHTML = "Objective-C: <mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:1.0];</mark>";
+    document.getElementById("objc").innerHTML = "Objective-C:</br><mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:1.0];</mark>";
 
-    document.getElementById("swift").innerHTML = "Swift: <mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ " alpha:1.0)</mark>";
+    document.getElementById("swift").innerHTML = "Swift:</br><mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ " alpha:1.0)</mark>";
 
     document.getElementById("rgb").innerHTML = "RGB:  " + r + "," + g + "," + b +"";
 
@@ -124,13 +124,29 @@ function colorPicker()
 }
 
 
+function copyObjc() {
+    var holdtext= String(document.getElementById("objc").innerHTML);
+    Copied = holdtext.createTextRange();
+    Copied.execCommand("RemoveFormat");
+    Copied.execCommand("Copy");
+}
+
+function copySwift() {
+    var holdtext = String(document.getElementById("swift").innerHTML);
+    Copied = holdtext.createTextRange();
+    Copied.execCommand("RemoveFormat");
+    Copied.execCommand("Copy");
+}
+
+
+
 </script>
 
 
 <div style="width:700px;height: 100%; display: inline-block; text-align: left;">
 <font face="Courier">
 <hr>
-<h2 style="text-align: center;">HEX/RGB to UIColor Converter</h2>
+<h1 style="text-align: center;">HEX/RGB to UIColor Converter</h1>
 <p style="text-align: right;">By: <a href="http://twitter.com/kaiusee" target="_blank">@Kaiusee</a></p>
 <hr>
 </br>
@@ -144,8 +160,12 @@ Color Picker: <input name="colorPicker" value="000000" class="jscolor" id="color
 </br></br>
 <hr>
 </br>
-<b><div id="objc"></div></br>
-<div id="swift"></div></b>
+<b>
+<div id="objc"></div></br> 
+<div id="swift"></div>
+</b> 
+
+
 </hr>
 
 <br/>
