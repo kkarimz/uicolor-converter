@@ -1,5 +1,7 @@
 <html>
-<head></head>
+<head>
+    <script src="jscolor.js"></script>
+</head>
 <body style="text-align: center;">
 
 <script type="text/javascript">
@@ -129,7 +131,7 @@ RGB Color: R <input name="colorTextBoxR" id="colorTextR" type="number" onkeyup="
 G <input name="colorTextBoxG" id="colorTextG" type="number" onkeyup="toRGB()" onchange="toRGB()" maxlength="3" placeholder="255" style="height: 30px; width:100px; font-size: 20px"  />
 B <input name="colorTextBoxB" id="colorTextB" type="number" onkeyup="toRGB()" onchange="toRGB()" maxlength="3" placeholder="255" style="height: 30px; width:100px; font-size: 20px"  />
 </br></br>
-Color Picker: <input name="colorPicker" id="colorPickerId" type="color" onkeyup="colorPicker()" onchange="colorPicker()" maxlength="3" placeholder="255" style="height: 30px; width:220px; font-size: 20px" />  
+Color Picker: <input name="colorPicker" value="000000" class="jscolor" id="colorPickerId" onkeyup="colorPicker()" onchange="colorPicker()" style="height: 30px; width:220px; font-size: 20px" />
 </br></br>
 <hr>
 </br>
