@@ -1,6 +1,25 @@
 <html>
 <head>
+<title>HEX/RGB to UIColor</title>
+    <meta name="description" content="A simple online tool to convert HEX and RGB colors to UIColors"/>
+    <meta name="keywords" content="ios uicolor, swift uicolor, uicolor, hex to uicolor, rgb to uicolor, uicolor converter">
+    
     <script src="jscolor.js"></script>
+    <style type="text/css">
+        
+        body {
+            background-color: #ecf0f1
+        }
+
+        mark {
+            background-color: #bdc3c7;
+            color: black;
+        }
+
+    </style>
+
+
+
 </head>
 <body style="text-align: center;">
 
@@ -25,11 +44,11 @@ function toHex()
     if (parseInt(alpha) < 0) { document.getElementsByName("alphaTextBox")[0].value = "0.0"; }
     alpha = String(document.getElementsByName("alphaTextBox")[0] .value);
 
-    document.getElementById("objc").innerHTML = "Objective-C: <mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:" + alpha + "];</mark>";
+    document.getElementById("objc").innerHTML = "Objective-C</br><mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:" + alpha + "];</mark>";
 
-    document.getElementById("swift").innerHTML = "Swift: <mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ " alpha:" + alpha + ")</mark>";
+    document.getElementById("swift").innerHTML = "Swift</br><mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ " alpha:" + alpha + ")</mark><hr>";
 
-	document.getElementById("rgb").innerHTML = "RGB:  " + r + "," + g + "," + b +"";
+	document.getElementById("rgb").innerHTML = "RGB:  " + r + "," + g + "," + b +"<hr>";
 
 	var div1 = document.getElementById('colorBox');
  	div1.style.backgroundColor = "#" + hex;
@@ -67,11 +86,11 @@ function toRGB()
     if (g == "") g = "0";
     if (b == "") b = "0";
 
-    document.getElementById("objc").innerHTML = "Objective-C: <mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:1.0];</mark>";
+    document.getElementById("objc").innerHTML = "Objective-C</br><mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:1.0];</mark>";
 
-    document.getElementById("swift").innerHTML = "Swift: <mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+", alpha:1.0)</mark>";
+    document.getElementById("swift").innerHTML = "Swift</br><mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+", alpha:1.0)</mark><hr>";
 
-    document.getElementById("rgb").innerHTML = "RGB:  " + r + "," + g + "," + b +"";
+    document.getElementById("rgb").innerHTML = "RGB:  " + r + " , " + g + " , " + b +"<hr>";
 
 	var div1 = document.getElementById('colorBox');
  	div1.style.backgroundColor = "rgb("+r+","+g+","+b+")";
@@ -99,11 +118,11 @@ function colorPicker()
     var bValue = (b/255).toFixed(2);
  
 
-    document.getElementById("objc").innerHTML = "Objective-C: <mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:1.0];</mark>";
+    document.getElementById("objc").innerHTML = "Objective-C</br><mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:1.0];</mark>";
 
-    document.getElementById("swift").innerHTML = "Swift: <mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ " alpha:1.0)</mark>";
+    document.getElementById("swift").innerHTML = "Swift</br><mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ " alpha:1.0)</mark><hr>";
 
-    document.getElementById("rgb").innerHTML = "RGB:  " + r + "," + g + "," + b +"";
+    document.getElementById("rgb").innerHTML = "RGB:  " + r + "," + g + "," + b +"<hr>";
 
     var div1 = document.getElementById('colorBox');
     div1.style.backgroundColor = "#" + hex;
@@ -115,16 +134,33 @@ function colorPicker()
 }
 
 
+function copyObjc() {
+    var holdtext= String(document.getElementById("objc").innerHTML);
+    Copied = holdtext.createTextRange();
+    Copied.execCommand("RemoveFormat");
+    Copied.execCommand("Copy");
+}
+
+function copySwift() {
+    var holdtext = String(document.getElementById("swift").innerHTML);
+    Copied = holdtext.createTextRange();
+    Copied.execCommand("RemoveFormat");
+    Copied.execCommand("Copy");
+}
+
+
+
 </script>
 
 
 <div style="width:700px;height: 100%; display: inline-block; text-align: left;">
-<font face="Courier">
+<font face="Trebuchet MS">
 <hr>
-<h2 style="text-align: center;">HEX/RGB to UIColor Converter</h2>
-<p style="text-align: right;">By: <a href="http://twitter.com/kaiusee" target="_blank">@Kaiusee</a></p>
+<h1 style="text-align: center;">HEX/RGB to UIColor Converter</h1>
+<p style="text-align: center;"><b>A simple online tool to convert HEX and RGB colors to UIColors</b></br>By: <a href="http://twitter.com/kaiusee" target="_blank">@Kaiusee</a></p>
 <hr>
 </br>
+<h4>
 HEX Color: # <input name="colorTextBox" id="colorText" type="text" onkeyup="toHex()"   maxlength="6" placeholder="3a3a3a" style="height: 30px; width:100px; font-size: 20px" />  Alpha: <input name="alphaTextBox" id="alphaText" type="number" onkeyup="toHex()" onchange="toHex()" maxlength="6" placeholder="1.0" style="height: 30px; width:100px; font-size: 20px" value="1.0" />
 </br></br>
 RGB Color: R <input name="colorTextBoxR" id="colorTextR" type="number" onkeyup="toRGB()" onchange="toRGB()" maxlength="3" placeholder="255" style="height: 30px; width:100px; font-size: 20px" />
@@ -132,16 +168,20 @@ G <input name="colorTextBoxG" id="colorTextG" type="number" onkeyup="toRGB()" on
 B <input name="colorTextBoxB" id="colorTextB" type="number" onkeyup="toRGB()" onchange="toRGB()" maxlength="3" placeholder="255" style="height: 30px; width:100px; font-size: 20px"  />
 </br></br>
 Color Picker: <input name="colorPicker" value="000000" class="jscolor" id="colorPickerId" onkeyup="colorPicker()" onchange="colorPicker()" style="height: 30px; width:220px; font-size: 20px" />
-</br></br>
-<hr>
+</h4>
 </br>
-<b><div id="objc"></div></br>
-<div id="swift"></div></b>
-</hr>
-
-<br/>
+<hr>
+<b>
+<font face="Courier" style="text-align: center;">
+<h3>
+<div id="objc"></div></br> 
+<div id="swift"></div>
+</h3>
+</font>
+</b> 
+<h3 style="text-align: center;">
 <div id="colorBox" style="width:150px;height:150px;display: inline-block; "></div>
-<div id="rgb"></div>
+<div id="rgb"></div></h3>
 
 </font>
 </div>
