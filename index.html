@@ -3,7 +3,7 @@
 <title>HEX/RGB to UIColor</title>
     <meta name="description" content="A simple online tool to convert HEX and RGB colors to UIColors"/>
     <meta name="keywords" content="ios uicolor, swift uicolor, uicolor, hex to uicolor, rgb to uicolor, uicolor converter">
-
+    
     <script src="jscolor.js"></script>
     <style type="text/css">
         
@@ -18,16 +18,7 @@
 
     </style>
 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-88716713-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
 
 </head>
 <body style="text-align: center;">
@@ -55,7 +46,7 @@ function toHex()
 
     document.getElementById("objc").innerHTML = "Objective-C</br><mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:" + alpha + "];</mark>";
 
-    document.getElementById("swift").innerHTML = "Swift</br><mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ " alpha:" + alpha + ")</mark><hr>";
+    document.getElementById("swift").innerHTML = "Swift</br><mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ ", alpha:" + alpha + ")</mark><hr>";
 
 	document.getElementById("rgb").innerHTML = "RGB:  " + r + "," + g + "," + b +"<hr>";
 
@@ -129,7 +120,7 @@ function colorPicker()
 
     document.getElementById("objc").innerHTML = "Objective-C</br><mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:1.0];</mark>";
 
-    document.getElementById("swift").innerHTML = "Swift</br><mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ " alpha:1.0)</mark><hr>";
+    document.getElementById("swift").innerHTML = "Swift</br><mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ ", alpha:1.0)</mark><hr>";
 
     document.getElementById("rgb").innerHTML = "RGB:  " + r + "," + g + "," + b +"<hr>";
 
