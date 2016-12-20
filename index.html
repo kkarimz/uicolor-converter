@@ -184,19 +184,6 @@ Color Picker: <input name="colorPicker" value="000000" class="jscolor" id="color
 <div id="rgb"></div></h3>
 
 </font>
-
-<div>
-	<h2> Swift 3 convert Hex String to UIColor </h2>
-	<code><p>func hexStringToUIColor (hex:String) -> UIColor {  var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()</p>
-
-<p> if (cString.hasPrefix(&quot;#&quot;)) {  cString.remove(at: cString.startIndex)  }</p>
-
-<p> if ((cString.characters.count) != 6) {  return UIColor.gray  }</p>
-
-<p> var rgbValue:UInt32 = 0  Scanner(string: cString).scanHexInt32(&amp;rgbValue)</p>
-
-<p> return UIColor(  red: CGFloat((rgbValue &amp; 0xFF0000) >> 16) / 255.0,  green: CGFloat((rgbValue &amp; 0x00FF00) >> 8) / 255.0,  blue: CGFloat(rgbValue &amp; 0x0000FF) / 255.0,  alpha: CGFloat(1.0)  ) }</p></code>
-
 </div>
 
 
