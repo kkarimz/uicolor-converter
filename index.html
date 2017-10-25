@@ -3,30 +3,102 @@
 <title>HEX/RGB to UIColor</title>
     <meta name="description" content="A simple online tool to convert HEX and RGB colors to UIColors"/>
     <meta name="keywords" content="ios uicolor, swift uicolor, uicolor, hex to uicolor, rgb to uicolor, uicolor converter">
-    
-    <script src="jscolor.js"></script>
-    <style type="text/css">
-        
-        body {
-            background-color: #fff;
-        }
 
-        mark {
-            background-color: #bdc3c7;
-            color: black;
-        }
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="theme.css" rel="stylesheet">
+ 
+  </head>
 
-    </style>
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">UIColor Converter</a>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container theme-showcase" role="main">
+      <div class="jumbotron">
+        <h1>UIColor Converter</h1>
+        <p>A simple online tool to convert HEX and RGB colors to UIColors</p>
+        <p>Developed By: <input type="button" onclick="location.href='http://twitter.com/kaiusee'" value="@Kaiusee" class="btn btn-info"/></p>
+      </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">HEX Color</h3>
+            </div>
+            <div class="panel-body">
+              
+              <h2>#<input name="colorTextBox" id="colorText" type="text" onkeyup="toHex()"   maxlength="6" placeholder="e.g. 3a3a3a" style="height: 40px; width:200px; font-size: 30px" /></h2>
+              <h3>Alpha: <input name="alphaTextBox" id="alphaText" type="" onkeyup="toHex()" onchange="toHex()" maxlength="3" placeholder="1.0" style="height: 30px; width:100px; font-size: 20px" value="1.0" /> </h3>
+
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">RGB Color</h3>
+            </div>
+            <div class="panel-body">
+
+              
+              <h3>R <input name="colorTextBoxR" id="colorTextR" type="number" onkeyup="toRGB()" onchange="toRGB()" maxlength="3" placeholder="255" style="height: 30px; width:100px; font-size: 20px" /></h3>
+            
+              <h3>G <input name="colorTextBoxG" id="colorTextG" type="number" onkeyup="toRGB()" onchange="toRGB()" maxlength="3" placeholder="255" style="height: 30px; width:100px; font-size: 20px"  /></h3>
+              
+              <h3>B <input name="colorTextBoxB" id="colorTextB" type="number" onkeyup="toRGB()" onchange="toRGB()" maxlength="3" placeholder="255" style="height: 30px; width:100px; font-size: 20px"  /></h3>
+              
+            </div>
+          </div>
+
+<!--           <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Color Picker</h3>
+            </div>
+            <div class="panel-body">
+              
+            <input name="colorPicker" value="000000" class="jscolor" id="colorPickerId" onkeyup="colorPicker()" onchange="colorPicker()" style="height: 100px; width:300px; font-size: 40px" />
+              
+            </div>
+          </div> -->
+
+
+          <div id="resultsPanel" class="panel panel-default" style="display: none;">
+          <div class="panel-heading">
+            <h3 class="panel-title">Results</h3>
+          </div>
+          <div class="panel-body">
+              
+            <h3>
+            <h1><span class="label label-success">Swift</span></h1>
+            <div id="swift"></div></br>
+            <h1><span class="label label-success">Objective-C</span></h1>
+            <div id="objc"></div>
+            </h3>
+            </font>
+            </b> 
+            <h3 style="text-align: center;">
+            <div id="colorBox" style="width:150px;height:150px;display: inline-block; "></div>
+            <div id="rgb"></div></h3>
+              
+          </div>
+          </div>
+
+
+    </div> <!-- /container -->
 
 
 
-</head>
-<body style="text-align: center;">
-
-<script type="text/javascript">
+    <script type="text/javascript">
 
 function toHex()
 {
+    document.getElementById("resultsPanel").style.display = 'block';
+
     //var hex = document.getElementsByName("colorTextBox").value;
     var hex = String(document.getElementsByName("colorTextBox")[0] .value);
     var alpha = String(document.getElementsByName("alphaTextBox")[0] .value);
@@ -44,9 +116,9 @@ function toHex()
     if (parseInt(alpha) < 0) { document.getElementsByName("alphaTextBox")[0].value = "0.0"; }
     alpha = String(document.getElementsByName("alphaTextBox")[0] .value);
 
-    document.getElementById("objc").innerHTML = "Objective-C</br><mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:" + alpha + "];</mark>";
+    document.getElementById("objc").innerHTML = "<h3><div class='alert alert-success' role='alert'>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:" + alpha + "];</div></h3>";
 
-    document.getElementById("swift").innerHTML = "Swift</br><mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ ", alpha:" + alpha + ")</mark><hr>";
+    document.getElementById("swift").innerHTML = "<h3><div class='alert alert-success' role='alert'>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ ", alpha:" + alpha + ")</div></h3>";
 
     document.getElementById("rgb").innerHTML = "RGB:  " + r + "," + g + "," + b +"<hr>";
 
@@ -63,6 +135,8 @@ function toHex()
 
 function toRGB()
 {
+    document.getElementById("resultsPanel").style.display = 'block';
+
     var r = String(document.getElementsByName("colorTextBoxR")[0] .value);
     var g = String(document.getElementsByName("colorTextBoxG")[0] .value);
     var b = String(document.getElementsByName("colorTextBoxB")[0] .value);
@@ -86,9 +160,9 @@ function toRGB()
     if (g == "") g = "0";
     if (b == "") b = "0";
 
-    document.getElementById("swift").innerHTML = "Swift</br><mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+", alpha:1.0)</mark></mark>";
+    document.getElementById("swift").innerHTML = "<h3><div class='alert alert-success' role='alert'>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+", alpha:1.0)</div></h3>";
 
-    document.getElementById("objc").innerHTML = "Objective-C</br><mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:1.0];";
+    document.getElementById("objc").innerHTML = "<h3><div class='alert alert-success' role='alert'>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:1.0];</div></h3>";
 
     document.getElementById("rgb").innerHTML = "RGB:  " + r + " , " + g + " , " + b +"<hr>";
 
@@ -101,92 +175,54 @@ function toRGB()
 
 
 
-function colorPicker()
-{
-    //var hex = document.getElementsByName("colorTextBox").value;
-    var hex = String(document.getElementById("colorPickerId").value);
-    hex = hex.replace("#", "");
-    document.getElementsByName("colorTextBox")[0] .value = hex;
+// function colorPicker()
+// {
+//     //var hex = document.getElementsByName("colorTextBox").value;
+//     var hex = String(document.getElementById("colorPickerId").value);
+//     hex = hex.replace("#", "");
+//     document.getElementsByName("colorTextBox")[0] .value = hex;
 
-    var bigint = parseInt(hex, 16);
-    var r = (bigint >> 16) & 255;
-    var g = (bigint >> 8) & 255;
-    var b = bigint & 255;
+//     var bigint = parseInt(hex, 16);
+//     var r = (bigint >> 16) & 255;
+//     var g = (bigint >> 8) & 255;
+//     var b = bigint & 255;
 
-    var rValue = (r/255).toFixed(2);
-    var gValue = (g/255).toFixed(2);
-    var bValue = (b/255).toFixed(2);
+//     var rValue = (r/255).toFixed(2);
+//     var gValue = (g/255).toFixed(2);
+//     var bValue = (b/255).toFixed(2);
  
 
-    document.getElementById("objc").innerHTML = "Objective-C</br><mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:1.0];</mark>";
+//     document.getElementById("objc").innerHTML = "Objective-C</br><mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:1.0];</mark>";
 
-    document.getElementById("swift").innerHTML = "Swift</br><mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ ", alpha:1.0)</mark>";
+//     document.getElementById("swift").innerHTML = "Swift</br><mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ ", alpha:1.0)</mark>";
 
-    document.getElementById("rgb").innerHTML = "RGB:  " + r + "," + g + "," + b +"<hr>";
+//     document.getElementById("rgb").innerHTML = "RGB:  " + r + "," + g + "," + b +"<hr>";
 
-    var div1 = document.getElementById('colorBox');
-    div1.style.backgroundColor = "#" + hex;
+//     var div1 = document.getElementById('colorBox');
+//     div1.style.backgroundColor = "#" + hex;
 
-    document.getElementsByName("colorTextBoxR")[0] .value = r;
-    document.getElementsByName("colorTextBoxG")[0] .value = g;
-    document.getElementsByName("colorTextBoxB")[0] .value = b;
+//     document.getElementsByName("colorTextBoxR")[0] .value = r;
+//     document.getElementsByName("colorTextBoxG")[0] .value = g;
+//     document.getElementsByName("colorTextBoxB")[0] .value = b;
     
-}
+// }
 
 
-function copyObjc() {
-    var holdtext= String(document.getElementById("objc").innerHTML);
-    Copied = holdtext.createTextRange();
-    Copied.execCommand("RemoveFormat");
-    Copied.execCommand("Copy");
-}
+// function copyObjc() {
+//     var holdtext= String(document.getElementById("objc").innerHTML);
+//     Copied = holdtext.createTextRange();
+//     Copied.execCommand("RemoveFormat");
+//     Copied.execCommand("Copy");
+// }
 
-function copySwift() {
-    var holdtext = String(document.getElementById("swift").innerHTML);
-    Copied = holdtext.createTextRange();
-    Copied.execCommand("RemoveFormat");
-    Copied.execCommand("Copy");
-}
-
-
+// function copySwift() {
+//     var holdtext = String(document.getElementById("swift").innerHTML);
+//     Copied = holdtext.createTextRange();
+//     Copied.execCommand("RemoveFormat");
+//     Copied.execCommand("Copy");
+// }
 
 </script>
 
-
-<div style="width:700px;height: 100%; display: inline-block; text-align: left;">
-<font face="Trebuchet MS">
-<hr>
-<h1 style="text-align: center;">UIColor Converter</h1>
-<p style="text-align: center;"><b>A simple online tool to convert HEX and RGB colors to UIColors</b></br>Developed By: <a href="http://twitter.com/kaiusee" target="_blank">@Kaiusee</a></p>
-<hr>
-</br>
-<h4>
-HEX Color</br> #<input name="colorTextBox" id="colorText" type="text" onkeyup="toHex()"   maxlength="6" placeholder="3a3a3a" style="height: 60px; width:150px; font-size: 40px" /> </br></br> Alpha: <input name="alphaTextBox" id="alphaText" type="number" onkeyup="toHex()" onchange="toHex()" maxlength="6" placeholder="1.0" style="height: 30px; width:100px; font-size: 20px" value="1.0" />
-</br></br><hr></br> Or you can enter the RGB combinations or use the color picker below. </br></br>
-RGB Color: R <input name="colorTextBoxR" id="colorTextR" type="number" onkeyup="toRGB()" onchange="toRGB()" maxlength="3" placeholder="255" style="height: 30px; width:100px; font-size: 20px" />
-G <input name="colorTextBoxG" id="colorTextG" type="number" onkeyup="toRGB()" onchange="toRGB()" maxlength="3" placeholder="255" style="height: 30px; width:100px; font-size: 20px"  />
-B <input name="colorTextBoxB" id="colorTextB" type="number" onkeyup="toRGB()" onchange="toRGB()" maxlength="3" placeholder="255" style="height: 30px; width:100px; font-size: 20px"  />
-</br></br>
-Color Picker: <input name="colorPicker" value="000000" class="jscolor" id="colorPickerId" onkeyup="colorPicker()" onchange="colorPicker()" style="height: 30px; width:220px; font-size: 20px" />
-</h4>
-</br>
-<hr>
-<b>
-<font face="Courier" style="text-align: center;">
-<h3>
-<div id="swift"></div></br>
-<div id="objc"></div>
-</h3>
-</font>
-</b> 
-<h3 style="text-align: center;">
-<div id="colorBox" style="width:150px;height:150px;display: inline-block; "></div>
-<div id="rgb"></div></h3>
-
-</font>
-</div>
-
-
-
-</body>
+  </body>
 </html>
