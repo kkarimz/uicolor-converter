@@ -87,7 +87,7 @@ function toRGB()
     if (b == "") b = "0";
 
     document.getElementById("swift").innerHTML = "Swift</br><mark>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+", alpha:1.0)</mark></mark>";
-    
+
     document.getElementById("objc").innerHTML = "Objective-C</br><mark>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:1.0];<hr>";
 
     document.getElementById("rgb").innerHTML = "RGB:  " + r + " , " + g + " , " + b +"<hr>";
@@ -161,8 +161,8 @@ function copySwift() {
 <hr>
 </br>
 <h4>
-HEX Color: # <input name="colorTextBox" id="colorText" type="text" onkeyup="toHex()"   maxlength="6" placeholder="3a3a3a" style="height: 30px; width:100px; font-size: 20px" />  Alpha: <input name="alphaTextBox" id="alphaText" type="number" onkeyup="toHex()" onchange="toHex()" maxlength="6" placeholder="1.0" style="height: 30px; width:100px; font-size: 20px" value="1.0" />
-</br></br>
+HEX Color</br> #<input name="colorTextBox" id="colorText" type="text" onkeyup="toHex()"   maxlength="6" placeholder="3a3a3a" style="height: 60px; width:150px; font-size: 40px" /> </br></br> Alpha: <input name="alphaTextBox" id="alphaText" type="number" onkeyup="toHex()" onchange="toHex()" maxlength="6" placeholder="1.0" style="height: 30px; width:100px; font-size: 20px" value="1.0" />
+</br></br><hr></br> Or you can enter the RGB combinations or use the color picker below. </br></br>
 RGB Color: R <input name="colorTextBoxR" id="colorTextR" type="number" onkeyup="toRGB()" onchange="toRGB()" maxlength="3" placeholder="255" style="height: 30px; width:100px; font-size: 20px" />
 G <input name="colorTextBoxG" id="colorTextG" type="number" onkeyup="toRGB()" onchange="toRGB()" maxlength="3" placeholder="255" style="height: 30px; width:100px; font-size: 20px"  />
 B <input name="colorTextBoxB" id="colorTextB" type="number" onkeyup="toRGB()" onchange="toRGB()" maxlength="3" placeholder="255" style="height: 30px; width:100px; font-size: 20px"  />
