@@ -24,7 +24,7 @@
       <div class="jumbotron">
         <h1>UIColor Converter</h1>
         <p>A simple online tool to convert HEX and RGB colors to UIColors</p>
-        <p>Developed By: <input type="button" onclick="location.href='http://twitter.com/kaiusee'" value="@Kaiusee" class="btn btn-info"/></p>
+        <p>Developed By: <a href="http://twitter.com/kaiusee"><span class="label label-primary">@Kaiusee</span></a>
       </div>
 
           <div class="panel panel-default">
@@ -74,14 +74,16 @@
           <div class="panel-body">
               
             <h3>
-            <h1><span class="label label-success">Swift</span></h1>
+            <h1><span class="label label-primary">Swift</span></h1>
             <div id="swift"></div></br>
-            <h1><span class="label label-success">Objective-C</span></h1>
+            <h1><span class="label label-primary">Objective-C</span></h1>
             <div id="objc"></div>
             </h3>
             </font>
             </b> 
+          </br>
             <h3 style="text-align: center;">
+            <h1><span class="label label-primary">Color Selected</span></h1></br>
             <div id="colorBox" style="width:150px;height:150px;display: inline-block; "></div>
             <div id="rgb"></div></h3>
               
@@ -116,11 +118,11 @@ function toHex()
     if (parseInt(alpha) < 0) { document.getElementsByName("alphaTextBox")[0].value = "0.0"; }
     alpha = String(document.getElementsByName("alphaTextBox")[0] .value);
 
-    document.getElementById("objc").innerHTML = "<h3><div class='alert alert-success' role='alert'>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:" + alpha + "];</div></h3>";
+    document.getElementById("objc").innerHTML = "<h3><div class='alert alert-info' role='alert'>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:" + alpha + "];</div></h3>";
 
-    document.getElementById("swift").innerHTML = "<h3><div class='alert alert-success' role='alert'>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ ", alpha:" + alpha + ")</div></h3>";
+    document.getElementById("swift").innerHTML = "<h3><div class='alert alert-info' role='alert'>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+ ", alpha:" + alpha + ")</div></h3>";
 
-    document.getElementById("rgb").innerHTML = "RGB:  " + r + "," + g + "," + b +"<hr>";
+    // document.getElementById("rgb").innerHTML = "<div class='alert alert-info' role='alert'>RGB:  " + r + "," + g + "," + b +"</div>";
 
     var div1 = document.getElementById('colorBox');
     div1.style.backgroundColor = "#" + hex;
@@ -160,11 +162,11 @@ function toRGB()
     if (g == "") g = "0";
     if (b == "") b = "0";
 
-    document.getElementById("swift").innerHTML = "<h3><div class='alert alert-success' role='alert'>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+", alpha:1.0)</div></h3>";
+    document.getElementById("swift").innerHTML = "<h3><div class='alert alert-info' role='alert'>UIColor(red:" + rValue + ", green:"+gValue+", blue:"+bValue+", alpha:1.0)</div></h3>";
 
-    document.getElementById("objc").innerHTML = "<h3><div class='alert alert-success' role='alert'>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:1.0];</div></h3>";
+    document.getElementById("objc").innerHTML = "<h3><div class='alert alert-info' role='alert'>[UIColor colorWithRed:" + rValue+ " green:" + gValue + " blue:" + bValue + " alpha:1.0];</div></h3>";
 
-    document.getElementById("rgb").innerHTML = "RGB:  " + r + " , " + g + " , " + b +"<hr>";
+    // document.getElementById("rgb").innerHTML = "RGB:  " + r + " , " + g + " , " + b +"<hr>";
 
     var div1 = document.getElementById('colorBox');
     div1.style.backgroundColor = "rgb("+r+","+g+","+b+")";
