@@ -32,9 +32,11 @@
               
               <h2>HEX # <input name="colorTextBox" id="colorText" type="text" onkeyup="toHex()"   maxlength="6" placeholder="e.g. 3a3a3a" style="width:200px;" /></h2>
               <h4>Alpha: <input name="alphaTextBox" id="alphaText" type="" onkeyup="toHex()" onchange="toHex()" maxlength="3" placeholder="1.0" style="height: 30px; width:100px; font-size: 20px" value="1.0" /> </h4>
-
+    
             </div>
           </div>
+        
+
 
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -50,7 +52,25 @@
               
             </div>
           </div>
-
+        
+        
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Color Selected</h3>
+            </div>
+            <div class="panel-body">
+            
+                    <h3 style="text-align: center;">
+  //          <h2><span class="label label-primary">Color Selected</span></h2> 
+            <h2><div id="colorBox" style="border-radius: 4px;width:100%;height:60px;display: inline-block; "></div></h2>
+            <div id="rgb"></div></h3>
+        
+         </div>
+          </div>
+        
+        
+        
           <div id="resultsPanel" class="panel panel-default" style="display: none;">
           <div class="panel-heading">
             <h3 class="panel-title">Results</h3>
@@ -65,10 +85,7 @@
             </font>
             </b> 
           </br>
-            <h3 style="text-align: center;">
-            <h2><span class="label label-primary">Color Selected</span></h2> 
-            <h2><div id="colorBox" style="border-radius: 4px;width:100%;height:60px;display: inline-block; "></div></h2>
-            <div id="rgb"></div></h3>
+
           </div>
           </div>
 
